@@ -1,0 +1,25 @@
+usb serial 통신
+-usb를 이용해서  pc와 아두이노 통신
+-serial 통신을 사용 (hardware serial)
+-serial 통신은 2개의 데이터 통신용 핀을 사용한다 - Tx핀 Rx핀
+-아두이노 uno는 digital 0번과 1번이 이용도로 예약되어있음
+
+serial monitor
+-아두이노와 데이터를 주고 받기 위해 사용하는 툴
+-주로 디버깅,데이터 입력을 위해 사용
+-serial monitor를 이용한 디버깅 메시지를 보는것이 거의 유일한 디버깅 방법임
+
+serial monitor 사용방법
+-아두이노 연결된 상태로 사용
+-보드 종류와 com 포트 선택
+-통신 속도 설정 (기본은 9600bps)
+-serial.begin : 시리얼 초기화
+-serial.println : 출력
+
+blue-음극
+red-양극
+
+아두이노는 디지털과 아날로그 입력으로 구분되어 있다.
+-디지털 : on/off상태를 제어한다
+-아날로그 : 강약조절을 하면서 전기의 입출력을 제어할 수 있다.
+
