@@ -16,3 +16,15 @@ getView() : 데이터가 어떻게 보일것인지에 대한 것을 리턴
 ImageView
 -아이콘 등과 같은 임의의 이미지를 출력
 -src,srcCompat : 출력 대상이 되는 이미지명 입력 (필수임)
+
+RecyclerView구현
+1. RecyclerView를 가진 레이아웃 구성
+2. 각 데이터 아이템을 표현하기 위한 레이아웃 구성
+3. RecyclerView 표현 정의
+4. RecyclerView 어댑터 구현
+  - 생성자를 통해서 데이터를 전달받도록 구현
+  - 사용자 ViewHolder 구현
+  - 3개의 메소드를 구현
+    -onCreateViewHolder() : 뷰홀더 객체 생성 및 초기화
+    -onBindViewHolder() : 데이터를 가져와서 뷰홀더 안에 내용을 채움
+    -getItemCount() : 데이터 개수 반환
