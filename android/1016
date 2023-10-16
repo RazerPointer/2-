@@ -1,0 +1,18 @@
+Gridview - 2차원 격자 모양, 필요한 항목을 배치하고 선택하게 해주는 기능
+-verticalSpacing : 항목 간 상하여백
+-horizontalSpacing : 항목 간 좌우여백
+-columnWidth : 각 열의 너비
+-numColumns : 열 개수
+-stretchMode : 남은 여백 배정
+해당 옵션들은 레이아웃에서 설정하기보단 보통 java코드로 설정함
+
+BaseAdapter
+getCount() : 데이터의 총 개수
+getItem() : 배열의 몇 번째 요소인지를 리턴
+getItemId() : Position 위치의 id리턴
+getView() : 데이터가 어떻게 보일것인지에 대한 것을 리턴
+어뎁터이름() : 생성자로 context 초기화 --- context : 앱 실행을 위해 필요한 기본 정보들과 환경
+
+ImageView
+-아이콘 등과 같은 임의의 이미지를 출력
+-src,srcCompat : 출력 대상이 되는 이미지명 입력 (필수임)
