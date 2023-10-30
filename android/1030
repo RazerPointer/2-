@@ -1,0 +1,34 @@
+1.sqlite 두파트로 나눠서 진행
+2.첫 수업은 이론(실습x), 두번째 수업은 실습으로 이루어질 예정
+3.실습할 때 이론설명도 할 것
+
+sqlite
+-sql + lite 말 그대로 경량화된 sql
+-sqlite는 기본적으로 primary key가 고정이다
+  --컬럼명도 지정되어있음
+-primary key는 자동증가형 index값으로 주기 때문에 중복부여가 되지 않고 해당 key가 삭제되면 해당 key부분은 빈상태로 다음 번호가 나옴
+  ex)중간에 4번을 생성후 삭제했다 치면 다음 번호는 다시 4번이 아닌 5번이 나오는 식
+-android에서 sqlite를 사용할 때는 CursorAdapter를 사용(ArrayAdapter로도 구현이 가능은 함)
+
+tablelayout
+-각 row별로 갯수가 다를경우에는 column갯수가 가장 많은 row를 기준으로 테이블의 크기가 결정됨
+-여기서도 stretchColumn을 사용해서 남는 공간 배정함
+-layout_column = "" 를 이용하여 위젯이 배치되는 컬럼의 위치를 결정
+-layout_span = "" 로 여러 컬럼에 걸쳐서 배치하는 것이 가능함 -> 안의 컬럼개수는 최대개수를 넘지못함(넘는 수를 적어도 최대개수로만 적용됨)
+-table 중간에는 다른 어떤것을 삽입해도 상관없음
+-super(context, DATABASE_NAME, null, DATABASE_VERSION);
+  --DATABASE_VERSION은 내가 설정하는 버전임 무슨 숫자를 쓰든 상관은 없음
+  --버전이 바뀌면 기존 테이블은 드랍하고 새롭게 테이블을 만듬
+  --실무에서는 드랍되기 전에 테이블에 들어있는 데이터를 백업 후에 드랍하고 테이블을 새로 생성한 후에 백업 데이터를 다시 작성해주는 작업이 필요함
+  
+
+SQLiteOpenHelper 및 서브클래스
+-onCreate() : 첫실행 혹은 테이블이 업데이트(DATABASE_VERSION 변경)가 되었을 경우 호출, 변경점 없으면 불리지 않고 스킵
+  --execSQL메소드를 사용하여 SQL문 실행
+  --테이블이 만들때 첫번째 컬럼은 _id(primary key)고정임 다른값으로주면 db자체가 죽어버림
+  --테이블 생성 예 : create table notes(_id integer primary key autoincrement,
+                                        title text not null, body text not null);
+  --전부 not null을 때려박고 입력칸 빈칸이면 기본값 들어가게 하는 방법도 있는데 별로 좋은 방법은 아님 -> 예외처리 귀찮으면 이렇게 함
+  --수업시간에 적당히 돌아다닐 것
+  
+  
