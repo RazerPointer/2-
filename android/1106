@@ -1,0 +1,24 @@
+SQLiteOpenHelper클래스
+-데이터베이스의 오픈을 실행하기 위해 해당 클래스를 상속 받아서 작성함
+
+SQLiteDatabase
+-데이터베이스 인스턴스
+-실제 데이터베이스에 접근할 때 사용하는 인스턴스
+-해당 인스턴스에서 각종 쿼리관련 메소드를 호출
+
+rawQuery()
+-메소드를 생성해 select 구문을 직접 실행
+-말 그대로 query문 그대로를 작성함
+
+query()
+-메소드를 인자로 각 부분의 값을 넘겨 실행
+-인자 값만 씀
+
+SimpleCursorAdapter
+-Cursor Adapter 하위에 있는 메소드
+-(context, 레이아웃, 커서, 커서의 컬럼을 연결(from),xml파일의 텍스트 뷰 id를 저장한 배열(to) ,어뎁터 상태(flag))
+
+changeCurosr(cursor);
+-어댑터에게 물려있는 커서가 변동이 있다는 것을 알려주는 메소드
+
+
