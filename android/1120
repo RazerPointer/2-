@@ -1,0 +1,33 @@
+content Provider - 통화 파트
+
+에뮬레이터에서 수신,발신 구현 
+- 수신의 경우 대표적으로 두가지 방법이 있음
+- 에뮬레이터 두개를 사용하는 방법인경우 api버전을 맞춰줘야 함
+- 웬만한 앱들은 통화기록은 긁어감
+
+- 20대 때는 월화수목금금금으로 살아야 정상임 ㅇㄱㄹㅇ ㅂㅂㅂㄱ
+
+- 권한 허용을 하지 않았는데 참조하려고 하는경우 프로그램이 다운됨
+- 스크롤은 ui쪽에서 추가하는걸 권장
+
+<uses-permission android:name="android.permission.READ_CALL_LOG"/>
+-전화기록을 보는것에 대한 권한
+-AndroidManifest.xml
+-권한 처리가 필요한 이유 : 개인정보이기 때문
+
+textview.setMovementMethod(new ScrollingMovementMethod()); <- 텍스트뷰에 스크롤 기능 추가, 스크롤 속도와 상관없이 스크롤 거리 만큼만 이동함
+- 속도가 필요한 경우에는 그냥 레이아웃 쪽에서 만들어 주는게 좋음
+
+requestPermissions는 androidmanifest에 있는걸 써야함
+
+checkSelfPermission
+- 권한확인을 통해서, 사용자에게 권한을 획득했는지 확인함, 안드로이드 스튜디오 버전에 따라서 안쓰면 빨간불 들어오는 경우도 있음
+
+cr.query(컨텐트프로바이더uri,조회할컬럼,선택할 줄, 선택 조건, 정렬 조건)
+- 정렬 조건은 컬럼 명칭을 직접 써도 무관함
+
+통화 기록에서 calltype은 int형임
+- 그렇다고 타입을 숫자로 직접쓰는건 지양해야됨, 정의 되있는 상수로 쓰는게 좋음 -> 타입의 숫자가 버전바다 변하기 때문
+
+telephony = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+- 본인의 휴대전화 정보를 가져감
